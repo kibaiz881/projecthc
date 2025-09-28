@@ -17,5 +17,18 @@
             <h4>{{ publication.isPublished ? 'Publié' : 'Non Publié' }}</h4>
         </div>
     {% endfor %} 
+    <ul style="">
+        {% if totalPages > 1%}
+            {% for page in 1..totalPages %}
+                <li style="display: inline; margin: 5px;">
+                    {% if page == currentPage %}
+                        <strong>{{ page }}</strong>
+                    {% else %}
+                        <a href="{{ path('app_blog', {'page': page}) }}">{{ page }}</a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        {% endif %}
+    </ul>
 </div>
-{% endblock %}
+{% endblock %} 

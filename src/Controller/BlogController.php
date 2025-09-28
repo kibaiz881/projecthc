@@ -20,7 +20,11 @@ final class BlogController extends AbstractController
             ->execute();
 
         return $this->render('blog/index.html.twig', [
-            'publications' => $publications
+            'publications' => $publications,
+            'currentPage' => $page,
+            'itemsPerPage' => $ItemPerPage,
+            'totalItems' => $pubrepo->count([]),
+            'totalPages' => ceil($pubrepo->count([]) / $ItemPerPage),
         ]);
     }
 }

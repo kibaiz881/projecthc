@@ -31,7 +31,7 @@ class AppFixtures extends Fixture
               $publication->setContenue($faker->paragraph());
               $publication->setCategorie($categorie);
               $publication->setPostAt(\DateTimeImmutable::createFromMutable($faker->dateTimeBetween('-1 years', 'now')));
-              $publication->setIsPublished($faker->boolean(false));
+              $publication->setIsPublished($faker->boolean(70));
               $manager->persist($publication);
             }
         }

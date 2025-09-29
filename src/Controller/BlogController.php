@@ -14,6 +14,9 @@ final class BlogController extends AbstractController
     {
         // Paginer les résultats
         $publications = $pubrepo->createQueryBuilder('p')
+            ->where('p.isPublished = :isPublished')
+            ->setParameter('isPublished', true)
+            ->orderBy('p.postAt', 'DESC') 
             ->setFirstResult(($page - 1) * $ItemPerPage)
             ->setMaxResults($ItemPerPage)
             ->getQuery()
@@ -23,8 +26,8 @@ final class BlogController extends AbstractController
             'publications' => $publications,
             'currentPage' => $page,
             'itemsPerPage' => $ItemPerPage,
-            'totalItems' => $pubrepo->count([]),
-            'totalPages' => ceil($pubrepo->count([]) / $ItemPerPage),
+            'totalItems' => $pubrepo->count(['isPublished' => true]),
+            'totalPages' => ceil($pubrepo->count(['isPublished' => true]) / $ItemPerPage),
         ]);
     }
 }

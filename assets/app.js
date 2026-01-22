@@ -6,5 +6,17 @@ import './bootstrap.js';
  * which should already be in your base.html.twig.
  */
 import './styles/app.css';
+import 'bootstrap';
+import $ from 'jquery';
+import 'magnific-popup';
+import 'slick';
+import 'waypoints/lib/noframework.waypoints.js';
+import 'counterup2';
+import 'owl.carousel';
+import 'aos';
+import 'wowjs';
 
-console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
+
+global.$ = global.jQuery = $;
+
+ 

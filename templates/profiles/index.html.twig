@@ -9,11 +9,14 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Hello add this profiles {{ controller_name }}! ✅</h1>
 
     This friendly message is coming from:
     {{ form_start(form) }}
     {{ form_widget(form) }}
+    <button class="btn btn-primary">Submit</button>
     {{ form_end(form) }}
+
+    
 </div>
 {% endblock %}

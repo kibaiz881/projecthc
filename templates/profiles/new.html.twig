@@ -17,4 +17,11 @@
     <button class="btn btn-primary">Submit</button>
     {{ form_end(form) }}
 </div>
+<div>
+    {% for profile in profiles %}
+        <h2>{{ profile.imageName }}</h2>
+         <img src="{{ asset('images/products/' ~ profile.imageName) }}" alt="Image du profil" style="max-width: 200px;">    
+        <p>{{ profile.description }}</p>
+    {% endfor %}
+</div>
 {% endblock %}

@@ -20,9 +20,8 @@ class ProfileFormType extends AbstractType
                 'download_uri' => true,
                 'asset_helper' => true,
                 // Ajoutez des contraintes de validation si nécessaire
-                'constraints' => [new File(['maxSize' => '2M', 'mimeTypes' => ['image/jpeg', 'image/png']])],
+                'constraints' => [new File(['maxSize' => '100M', 'mimeTypes' => ['image/jpeg', 'image/png']])],
             ])
-            ->add('imageName')
             ->add('description')
         ;
     }

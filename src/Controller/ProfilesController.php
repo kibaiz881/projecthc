@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 final class ProfilesController extends AbstractController
 {
 #[Route('/profiles', name: 'app_profiles')]
-public function new(Request $request, EntityManagerInterface $entityManager, ProfilesRepository $profilesRepository): Response
+public function new(Request $request, EntityManagerInterface $entityManager): Response
 {
     $profile = new Profiles();
     $form = $this->createForm(ProfileFormType::class, $profile);
@@ -25,7 +25,6 @@ public function new(Request $request, EntityManagerInterface $entityManager, Pro
     $this->addFlash('success', 'Profiles enregistré avec succès !');
 
     // // 4. Redirige vers une autre page (ex: la liste des produits)
-    return $this->redirectToRoute('app_home');
 
     //affiche profiles image
     return $this->render('profiles/index.html.twig', [
